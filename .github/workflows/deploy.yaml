@@ -27,7 +27,12 @@ jobs:
         run: npm install --frozen-lockfile
 
       - name: Create .env config file
-        run: cp example.env .env
+        run: |
+          echo "DEPLOYMENT_URL=${{ vars.DEPLOYMENT_URL }}" >> .env
+          echo "DEPLOYMENT_BRANCH=${{ github.ref_name }}" >> .env
+          echo "GITHUB_ORG=${{ github.repository_owner }}" >> .env
+          echo "GITHUB_PROJECT=${{ github.event.repository.name }}" >> .env
+          echo "BASE_URL=/" >> .env
 
       - name: Build website
         run: npm run build && cp -r build github-pages
@@ -52,4 +57,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        
