@@ -34,12 +34,6 @@ jobs:
           echo "GITHUB_PROJECT=${{ github.event.repository.name }}" >> .env
           echo "BASE_URL=/" >> .env
 
-      - name: Print environment variables
-        run: env
-
-      - name: Display .env file
-        run: cat .env
-
       - name: Build website
         run: npm run build && cp -r build github-pages
 
