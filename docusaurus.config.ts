@@ -1,7 +1,7 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
-import {config as dotenvconfig}  from "dotenv";
+import { config as dotenvconfig } from "dotenv";
 
 dotenvconfig();
 
@@ -13,7 +13,7 @@ const moreColumn = {
   items: [
     {
       label: 'GitHub',
-      href: 'https://github.com/spmse',
+      href: `https://github.com/${process.env.GITHUB_ORG}`,
     },
   ],
 }
@@ -25,7 +25,7 @@ if (blogEnabled) {
 }
 
 const config: Config = {
-  title: 'DSO Live Demo Docs',
+  title: 'Docusaurus',
   tagline: 'Dinosaurs are cool',
   favicon: 'img/favicon.ico',
 
@@ -62,9 +62,9 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/spmse/dev-blog-template',
+            `https://github.com/${process.env.GITHUB_ORG}/${process.env.GITHUB_PROJECT}`,
         },
-        blog: blogEnabled ? 
+        blog: blogEnabled ?
           {
             showReadingTime: true,
             feedOptions: {
@@ -74,7 +74,7 @@ const config: Config = {
             // Please change this to your repo.
             // Remove this to remove the "edit this page" links.
             editUrl:
-              'https://github.com/spmse/dev-blog-template',
+              `https://github.com/${process.env.GITHUB_ORG}/${process.env.GITHUB_PROJECT}`,
             // Useful options to enforce blogging best practices
             onInlineTags: 'warn',
             onInlineAuthors: 'warn',
@@ -106,7 +106,7 @@ const config: Config = {
         },
         // {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/spmse/dev-blog-template',
+          href: `https://github.com/${process.env.GITHUB_ORG}/${process.env.GITHUB_PROJECT}`,
           label: 'Github',
           position: 'right',
         },
@@ -167,7 +167,7 @@ const config: Config = {
         {
           className: 'theme-code-block-highlighted-line',
           line: 'highlight-next-line',
-          block: {start: 'highlight-start', end: 'highlight-end'},
+          block: { start: 'highlight-start', end: 'highlight-end' },
         },
         {
           className: 'code-block-error-line',
@@ -180,7 +180,7 @@ const config: Config = {
 
 
 if (blogEnabled) {
-  (config.themeConfig.navbar as any).items.push({to: '/blog', label: 'Blog', position: 'left'});
+  (config.themeConfig.navbar as any).items.push({ to: '/blog', label: 'Blog', position: 'left' });
 }
 
 export default config;

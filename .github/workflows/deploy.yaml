@@ -1,14 +1,7 @@
 name: Deploy to GitHub Pages
 
 on:
-  # push:
-  #   branches:
-  #     - main
-  # pull_request:
-  #   branches:
-  #     - main
   workflow_call:
-  workflow_dispatch:
 
 jobs:
   build:
@@ -33,6 +26,7 @@ jobs:
           echo "GITHUB_ORG=${{ github.repository_owner }}" >> .env
           echo "GITHUB_PROJECT=${{ github.event.repository.name }}" >> .env
           echo "BASE_URL=/" >> .env
+          echo "BLOG_ENABLED=${{ vars.BLOG_ENABLED }}" >> .env
 
       - name: Build website
         run: npm run build && cp -r build github-pages
