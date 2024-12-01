@@ -1,6 +1,5 @@
 ---
 id: git-branch
-title: Git Branching
 sidebar_label: Git Branching
 ---
 
@@ -19,7 +18,6 @@ Branching is a powerful feature in Git that allows you to diverge from the main 
 | `git branch -d <branch-name>`             | Delete a branch (if merged)                            |
 | `git branch -D <branch-name>`             | Force delete a branch (if not merged)                  |
 | `git merge <branch-name>`                 | Merge the specified branch into the current branch     |
-
 
 ## Creating a New Branch
 
@@ -46,7 +44,6 @@ git checkout <branch-name>
 
 git switch <branch-name>
 ```
-
 
 ## Listing Branches
 
@@ -102,9 +99,6 @@ git merge <branch-name>
 
 This command merges the specified branch into the current branch.
 
-
-
 ## Summary
 
 Branching in Git allows for flexible and powerful workflows. By using the commands above, you can create, manage, and merge branches to streamline your development process.
-

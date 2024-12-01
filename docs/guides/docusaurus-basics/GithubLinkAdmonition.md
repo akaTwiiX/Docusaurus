@@ -18,23 +18,17 @@ To use the component, provide the required `link` to a GitHub repository or page
 
 ### Example
 
-```jsx
-import GithubLinkAdmonition from './GithubLinkAdmonition';
+```md
+import GithubLinkAdmonition from '@site/src/components/GithubLinkAdmonition';
 
-const MyComponent = () => {
-  return (
-    <div>
-      <GithubLinkAdmonition
-        link="https://github.com/your-repo"
-        text="View the GitHub Repository"
-        type="tip"
-        title="Important GitHub Link"
-      >
-        <p>Check out this GitHub repository for more information!</p>
-      </GithubLinkAdmonition>
-    </div>
-  );
-};
+<GithubLinkAdmonition
+  link="https://github.com/<Github-Org>/<Github-Repo>"
+  text="View the GitHub Repository"
+  type="tip"
+  title="Important GitHub Link"
+  >
+  <p>Check out this GitHub repository for more information!</p>
+</GithubLinkAdmonition>
 ```
 
 ### Styling
