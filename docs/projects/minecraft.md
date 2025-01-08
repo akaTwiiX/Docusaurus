@@ -6,7 +6,7 @@ sidebar_position: 5
 
 import GithubLinkAdmonition from '@site/src/components/GithubLinkAdmonition';
 
-<GithubLinkAdmonition title="Minecraft Server" text="Github" type="tip" link="www.github.com/johntwiix/minecraft-server/"/>
+<GithubLinkAdmonition title="Minecraft Server" text="Github" type="tip" link="https://www.github.com/johntwiix/minecraft-server/"/>
 
 import ReadmeLoader from '@site/src/components/ReadmeLoader';
 

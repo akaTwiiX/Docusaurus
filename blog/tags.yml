@@ -13,7 +13,68 @@ docusaurus:
   permalink: /docusaurus
   description: Docusaurus tag description
 
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+angular:
+  label: Angular
+  permalink: /angular
+  description: Angular tag description
+
+typescript:
+  label: Typescript
+  permalink: /typescript
+  description: Typescript tag description
+
+javascript:
+  label: Javascript
+  permalink: /javascript
+  description: Javascript tag description
+
+css:
+  label: CSS
+  permalink: /css
+  description: CSS tag description
+
+python:
+  label: Python
+  permalink: /python
+  description: Python tag description 
+
+django:
+  label: Django
+  permalink: /django
+  description: Django tag description
+
+cloud:
+  label: Cloud
+  permalink: /cloud
+  description: Cloud tag description
+
+aws:
+  label: AWS
+  permalink: /aws
+  description: AWS tag description
+
+github:
+  label: GitHub
+  permalink: /github
+  description: GitHub tag description
+
+git:
+  label: Git
+  permalink: /git
+  description: Git tag description
+
+docker:
+  label: Docker
+  permalink: /docker
+  description: Docker tag description
+
+gcp:
+  label: GCP
+  permalink: /gcp
+  description: Google Cloud Platform tag description
+
+terraform:
+  label: Terraform
+  permalink: /terraform
+  description: Terraform tag description
+  

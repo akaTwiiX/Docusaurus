@@ -1,6 +1,7 @@
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import React, { useState, useEffect } from 'react';
-import ReactMarkdown from 'react-markdown';
+import Markdown from 'react-markdown';
+import remarkGfm from 'remark-gfm'
 
 type ReadmeLoaderProps = {
     repo: string;
@@ -26,10 +27,14 @@ const ReadmeLoader = ({ repo, branch='main', org }: ReadmeLoaderProps) => {
 
         // Remove h1 title
         text = text
-          .split('\n')
-          .filter(line => !line.startsWith('#'))
-          .join('\n');
-
+        .split('\n')
+        .filter((line, index) => {
+          if (index === 0 && line.startsWith('#')) {
+            return false; 
+          }
+          return true;
+        })
+        .join('\n');
         setContent(text);
       } catch (error) {
         console.error(error);
@@ -42,7 +47,7 @@ const ReadmeLoader = ({ repo, branch='main', org }: ReadmeLoaderProps) => {
 
   return (
     <div>
-      <ReactMarkdown>{content}</ReactMarkdown>
+      <Markdown remarkPlugins={[remarkGfm]}>{content}</Markdown>
     </div>
   );
 };

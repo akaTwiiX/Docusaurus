@@ -27,19 +27,19 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
-# Copy only the requirements file and install dependencies
-
-RUN python -m pip install --no-cache-dir -r requirements.txt
-
 # Copy the Code into the working direction
 
 COPY . ${WORKDIR}
 
+# Copy only the requirements file and install dependencies
+
+RUN python -m pip install --no-cache-dir -r requirements.txt
+
 # Change to the app directory and run database migrations
 
 WORKDIR /app/babyshop_app
-RUN python manage.py makemigrations
-RUN python manage.py migrate
+RUN python manage.py makemigrations && \
+    python manage.py migrate
 
 # This is the command that will be executed on container launch
 
