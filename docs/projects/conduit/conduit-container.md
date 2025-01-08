@@ -6,7 +6,7 @@ sidebar_position: 1
 
 import GithubLinkAdmonition from '@site/src/components/GithubLinkAdmonition';
 
-<GithubLinkAdmonition title="conduit-container" text="Github" type="tip" link="www.github.com/johntwiix/conduit_container/"/>
+<GithubLinkAdmonition title="conduit-container" text="Github" type="tip" link="https://www.github.com/johntwiix/conduit_container/"/>
 
 import ReadmeLoader from '@site/src/components/ReadmeLoader';
 
