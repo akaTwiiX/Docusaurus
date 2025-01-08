@@ -1,7 +1,8 @@
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import React, { useState, useEffect } from 'react';
 import Markdown from 'react-markdown';
-import remarkGfm from 'remark-gfm'
+import remarkGfm from 'remark-gfm';
+import TOCInline from '@theme/TOCInline';
 
 type ReadmeLoaderProps = {
     repo: string;
@@ -9,9 +10,32 @@ type ReadmeLoaderProps = {
     org?: string;
 };
 
+type TOCItem = {
+    value: string;
+    id: string;
+    level: number;
+};
+
+const extractTOC = (markdown: string): TOCItem[] => {
+  const lines = markdown.split('\n');
+  return lines
+    .map((line) => {
+      const match = line.match(/^(#+)\s+(.*)/);
+      if (match) {
+        const level = match[1].length; // Number of '#' indicates the level
+        const value = match[2].trim();
+        const id = value.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+        return { value, id, level };
+      }
+      return null;
+    })
+    .filter(item => item !== null); // Remove null entries
+};
+
 const ReadmeLoader = ({ repo, branch='main', org }: ReadmeLoaderProps) => {
   const {siteConfig} = useDocusaurusContext();
   const [content, setContent] = useState('## Loading README...');
+  const [toc, setToc] = useState([]);
   const orgName = org || siteConfig.organizationName;
 
   useEffect(() => {
@@ -35,6 +59,9 @@ const ReadmeLoader = ({ repo, branch='main', org }: ReadmeLoaderProps) => {
           return true;
         })
         .join('\n');
+        
+        const toc = extractTOC(text);
+        setToc(toc);
         setContent(text);
       } catch (error) {
         console.error(error);
@@ -47,6 +74,7 @@ const ReadmeLoader = ({ repo, branch='main', org }: ReadmeLoaderProps) => {
 
   return (
     <div>
+      <TOCInline toc={toc} />
       <Markdown remarkPlugins={[remarkGfm]}>{content}</Markdown>
     </div>
   );
